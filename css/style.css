@@ -1,0 +1,464 @@
+@charset "utf-8";
+@font-face
+{
+font-family: 'Hannari';
+src: url('https://cdn.leafscape.be/hannari/hannari_web.woff2')
+format("woff2");
+}
+
+/* ========================================
+	トップアニメーション
+========================================= */
+/* トップアニメーションの白背景 */
+.logo {
+  position: fixed;
+  top: 0;
+  z-index: 3;
+  opacity: 1;
+  animation: fadeOutLogo 2s ease 4s forwards;
+  will-change: opacity, transform;
+}
+
+.logo img {
+  width: 100vw;
+  height: auto;
+}
+
+/* トップアニメーションの「We look forward to your attendace」 */
+.content {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 4;
+  opacity: 1;
+
+  width: 251px;
+  font-family: "Sawarabi Mincho", serif;
+  font-size: 14px;
+  color: #333333;
+}
+
+@keyframes fadeOutLogo {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
+
+.fadein {
+  opacity: 0;
+  animation: fadein 3s ease forwards;
+  animation-delay: 2.5s;
+}
+@keyframes fadein {
+  100% {  opacity: 1;}
+}
+
+/* ========================================
+	SVG
+========================================= */
+h1{
+  width: 215px;
+  position: absolute;
+  bottom: 55%;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  z-index: 4;
+  }
+  #mask path{
+  fill:none;
+  stroke:#ffffff;
+  stroke-width:30;
+  stroke-dasharray: 1800px;
+  stroke-dashoffset: 1800px;
+  animation: line 4s 0.4s forwards;
+  }
+  @keyframes line{
+  0%{stroke-dashoffset: 1800px;}
+  100%{stroke-dashoffset: 0;}
+  }
+  #mask path:nth-of-type(1){
+  animation: line 4s 0.6s forwards;
+  }
+  
+  #text{
+  mask: url(#mask-wrapper);
+  fill: #333333;
+  }
+
+
+/* ========================================
+	スクロールアニメーション
+========================================= */
+.scroll_up {
+  transition: 0.8s ease-in-out;
+  transform: translateY(30px);
+  opacity: 0;
+}
+.scroll_up.on {
+  transform: translateY(0);
+  opacity: 1.0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* 幅計算の調整 */
+}
+
+  img{
+    width: 100%;      
+    height: auto; 
+    display: block; /* 隙間を消す */
+  } 
+
+.background {
+  background-image: url(../images/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.innerWrap {
+  max-width: 348px;
+  margin: 0 auto;
+}
+
+/* ========================================
+	Top
+========================================= */
+.top {
+  height: 780px;
+}
+
+/* ========================================
+	Message
+========================================= */
+.message {
+  height: 600px;
+}
+
+.message img {
+  max-width: 348px;
+  height: auto;
+  object-fit: cover; 
+}
+
+/* ========================================
+	Countdown
+========================================= */
+.countdown {
+  height: 410px;
+  position: relative;
+}
+
+.countdown img {
+  max-width: 348px;
+  height: auto;
+  object-fit: cover; 
+}
+
+#day,#hour,#min,#sec,.time_day,.time_hour,.time_min,.time_sec {
+  font-family: "Kaisei Decol", serif;
+  color: #FFFFFF;
+}
+
+.time_day {
+  position: absolute;
+  top: 22.3%;
+  left: 35.7%;
+  font-size: 1rem;
+}
+
+#day {
+  font-size: 3.5rem;
+  margin-right: 3px;
+}
+
+.time_hour {
+  position: absolute;
+  top: 42.3%;
+  left: 27.6%;
+  font-size: 0.7rem;
+}
+
+#hour {
+  font-size: 1.4rem;
+  position: absolute;
+  left: 9%;
+  top: -41%;
+}
+
+.time_min {
+  position: absolute;
+  top: 42.3%;
+  left: 42.6%;
+  font-size: 0.7rem;
+}
+
+#min {
+  font-size: 1.4rem;
+  position: absolute;
+  left: 23%;
+  top: -41%;
+}
+
+.time_sec {
+  position: absolute;
+  top: 42.3%;
+  left: 59.6%;
+  font-size: 0.7rem;
+}
+
+#sec {
+  font-size: 1.4rem;
+  position: absolute;
+  left: 13%;
+  top: -41%;
+}
+
+#countdown {
+  /* 当日以降用 */
+  font-family: "Kaisei Decol", serif;
+  color: #FFFFFF;
+  font-size: 3rem;
+  letter-spacing: 1px;
+  position: absolute;
+  top: 34%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+/* ========================================
+	Profile
+========================================= */
+.profile {
+  height: 1050px;
+}
+
+/* ========================================
+	Album
+========================================= */
+.images {
+  height: 395px;
+  position: relative;
+}
+
+.images h2 {
+  text-align: center;
+}
+
+.album_title{
+  height: 66px;
+  width: auto;
+}
+
+.slider-3 {
+height: 293px;
+}
+
+.slider-3 .slick-slide {
+    margin: 0 25px;
+    padding: 25px 0; 
+    position: relative;
+    z-index: 5;
+  }
+  .slider-3 .slick-slide .slide-img {
+    width: 200px;
+    height: 200px;
+    transition: all 0.6s ease 0.4s;
+    opacity: 0.8;
+    box-shadow: 7px 7px 5px -5px #666;
+    overflow: hidden;
+  }
+  .slider-3 .slick-slide.slick-current .slide-img {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  .slider-3 .slick-slide .slide-img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .dots-3 .slick-dots {
+    text-align: center;
+    padding-bottom: 50px;
+  }
+
+
+
+/* ========================================
+	Information
+========================================= */
+.information {
+  /* height: 920px; */
+  height: 1335px;
+  position: relative;
+  font-family: "Hannari";
+  color: #333333;
+}
+
+.location {
+  position: absolute;
+  bottom: 69.2%;
+  left: 14.5%;
+  font-family: "Hannari";
+  font-size: 21px;
+  z-index: 4;
+}
+
+.location span {
+  font-size: 15px;
+}
+
+.icon {
+  position: absolute;
+  left: 25%;
+  font-size: 15px;
+}
+
+.mapinfo {
+  line-height: 20px;
+  bottom: 65.2%;
+  z-index: 4;
+}
+
+.tel {
+  bottom: 62.7%;
+  z-index: 4;
+}
+
+.tel.icon li {
+  text-decoration: underline;
+  text-underline-offset: 2px; /* アンダーラインとテキストの間隔 */
+  text-decoration-thickness: 0.4px; /* アンダーラインの太さ */
+  color: #333333;
+}
+
+.homepage {
+  bottom: 58.6%;
+  line-height: 18px;
+  z-index: 4;
+}
+
+.homepage.icon a{
+  text-decoration-line: underline;
+  text-underline-offset: 2px; /* アンダーラインとテキストの間隔 */
+  text-decoration-thickness: 0.5px; /* アンダーラインの太さ */
+  color: #333333;
+}
+
+.map {
+  width: 100%;
+  position: absolute;
+  bottom: 36%;
+}
+
+.access_title {
+  position: absolute;
+  bottom: 30.7%;
+  left: 23%;
+  z-index: 5;
+}
+
+.accessmap {
+  position: absolute;
+  bottom: 1%;
+  z-index: 4;
+}
+
+/* ========================================
+	Circle
+========================================= */
+.last_wrapper {
+  height: 1111px;
+  position: relative;
+}
+
+#bk2 {
+  position: absolute;
+  width: 47%;
+  bottom: 0;
+  right: 0;
+  z-index: 3;
+}
+
+#bk3 {
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+}
+
+#bk2, #bk3 {
+  pointer-events: none; /* 透明部分のクリックイベントを無効化 */
+}
+
+/* ========================================
+	RSVP
+========================================= */
+.rsvp {
+  position: relative;
+  margin-top: -50px;
+  z-index: 3;
+}
+
+.submitBtn img {
+    width: 209px;
+    position: absolute;
+bottom: 17%;
+left: 49.5%;
+transform: translate(-50%);
+z-index: 9999;
+}
+
+/* .rsvp .submitBtn {
+position: absolute;
+bottom: 17%;
+left: 49.5%;
+transform: translate(-50%);
+z-index: 10;
+} */
+
+
+/* ========================================
+	レスポンシブ対応（740px以降_パソコン用）
+========================================= */
+@media screen and (min-width:740px) {
+  body {
+    background-color: #E8E8E8;
+  }
+
+  .logo img {
+    max-width: 400px;
+    height: auto;
+  }
+
+  img {
+    width: 100%;
+    height: auto; 
+    display: block; /* 隙間を消す */
+  }
+  .container {
+    width: 400px;
+    margin: 0 auto;
+  }
+}
+
+/* ========================================
+	レスポンシブ対応（375px以内）
+========================================= */
+@media screen and (max-width:375px) {
+  .top img {
+    height: 780px;
+  }
+}
